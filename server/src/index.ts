@@ -76,7 +76,7 @@ io.on("connection", async (socket: any) => {
   await toggleUserConnectionStatus(socket.id);
 
   const observer = messagesCollection
-    .order('lastUpdated', "desc")
+    .orderBy('lastUpdated', "desc")
     .limit(0)
     .onSnapshot((querySnapshot) => {
       querySnapshot.docChanges().forEach((change) => {
